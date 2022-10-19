@@ -1,51 +1,111 @@
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 
-function NavScrollExample() {
+import { Container, Row, Col, Image, Card } from 'react-bootstrap';
+import Navbar from '../components/Navbar';
+
+export default function Home() {
+
   return (
-    <Navbar bg="light" expand="lg">
-      <Container fluid>
-        <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: '100px' }}
-            navbarScroll
-          >
-            <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Link</Nav.Link>
-            <NavDropdown title="Link" id="navbarScrollingDropdown">
-              <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action4">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action5">
-                Something else here
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link href="#" disabled>
-              Link
-            </Nav.Link>
-          </Nav>
-          <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
-}
+    <Container>
+      <Navbar />
+      <div className='blog-detail-page'>
+        <Row>
+          <Col md="8">
+            {/* AUTHOR INTRO STARTS */}
+            <Card className="mb-4 admin-intro">
+              <Image
+                roundedCircle
+                width={64}
+                height={64}
+                className="mr-3"
+                src="https://avatars1.githubusercontent.com/u/9482724?s=460&u=69a6acab13fd5547a4e316e496b573271077147f&v=4"
+                alt="Generic placeholder"
+              />
+              <Card.Body>
+                <h5 className="font-weight-bold mb-0">Hello Friends,</h5>
+                <p className="welcome-text">
+                My name is Filip Jerga and I am an experienced software engineer and freelance developer.
+                and this is my blog page.
+                </p>
+              </Card.Body>
+            </Card>
+            {/* AUTHOR INTRO ENDS */}
+          </Col>
+        </Row>
+        <hr/>
+        {/* className from props */}
+        <div className={`page-wrapper`}>
+          <Row className="mb-5">
+            <Col md="10">
+              {/* CardListItem STARTS */}
+              <Card className={`fj-card fj-card-list`}>
+                <div className="card-body-wrapper">
+                  <Card.Header
+                    className="d-flex flex-row">
+                    <img
+                      src={'https://via.placeholder.com/150'}
+                      className="rounded-circle mr-3"
+                      height="50px"
+                      width="50px"
+                      alt="avatar"/>
+                      <div>
+                        <Card.Title className="font-weight-bold mb-1">Placeholder Author</Card.Title>
+                        <Card.Text className="card-date">Placeholder Date</Card.Text>
+                      </div>
+                  </Card.Header>
+                  <Card.Body>
+                    <Card.Title className="card-main-title">Placeholder Title</Card.Title>
+                    <Card.Text>Placehodler Subtitle</Card.Text>
+                  </Card.Body>
+                </div>
+                <a href="#" className="card-button">
+                  Read More
+                </a>
+              </Card>
+              {/* CardListItem ENDS */}
+            </Col>
 
-export default NavScrollExample;
+            <Col md="4">
+              <Card className={`fj-card`}>
+                <div className="card-body-wrapper">
+                  <Card.Header
+                    className="d-flex flex-row">
+                    <img
+                      src={'https://via.placeholder.com/150'}
+                      className="rounded-circle mr-3"
+                      height="50px"
+                      width="50px"
+                      alt="avatar"/>
+                    <div>
+                      <Card.Title className="font-weight-bold mb-1">Placeholder Author</Card.Title>
+                      <Card.Text className="card-date">Placeholder Date</Card.Text>
+                    </div>
+                  </Card.Header>
+                  <div className="view overlay">
+                    <Card.Img
+                      src='https://via.placeholder.com/250'
+                      alt="Card image cap"
+                    />
+                  </div>
+                  <Card.Body>
+                    <Card.Title className="card-main-title">Placeholder Title</Card.Title>
+                    <Card.Text>Placehodler Subtitle</Card.Text>
+                  </Card.Body>
+                </div>
+                <a className="card-button">
+                  Read More
+                </a>
+              </Card>
+            </Col>
+          </Row>
+        </div>
+      </div>
+      <footer className="page-footer">
+        <div>
+          <a href="#">courses</a>{' | '}
+          <a href="#">github</a>{' | '}
+          <a href="#">facebook</a>
+        </div>
+      </footer>
+    </Container>
+  )
+}
