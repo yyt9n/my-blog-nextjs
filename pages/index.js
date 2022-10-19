@@ -1,6 +1,6 @@
 
 import { Container, Row, Col, Image, Card } from 'react-bootstrap';
-import Navbar from '../components/Navbar';
+import Navbar from 'components/Navbar';
 
 export default function Home() {
 
