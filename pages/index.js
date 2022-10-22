@@ -1,3 +1,5 @@
+
+
 import { Row, Col } from 'react-bootstrap';
 import PageLayout from 'components/PageLayout';
 import AuthorIntro from 'components/AuthorIntro';
@@ -18,6 +20,7 @@ export default function Home({blogs}) {
         { blogs.map(blog =>
           <Col key={blog.slug} md="4">
             <CardItem
+              author={blog.author}
               title={blog.title}
               subtitle={blog.subtitle}
               date={blog.date}
