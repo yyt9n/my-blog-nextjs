@@ -12,9 +12,9 @@ const components = {
         </HighlightCode>
       )
     },
-    image: ({value: {asset, alt}}) => {
+    image: ({value: {asset, alt, position}}) => {
         return (
-            <div className="blog-image">
+            <div className={`blog-image blog-image-${position}`}>
                 <img src={urlFor(asset).height(300).fit('max').url()} />
                 <div className="image-alt">{alt}</div>
             </div>
