@@ -1,13 +1,14 @@
 import { PortableText } from '@portabletext/react'
+import HighlightCode from 'components/HighlightCode';
 
 const components = {
   types: {
     code: ({value: {language, code, filename}}) => {
       return (
-        <pre data-language={language}>
-          <code>{code}</code>
-          <p>{filename}</p>
-        </pre>
+        <HighlightCode language={language}>
+          {code}
+          <div className="code-filename">{filename}</div>
+        </HighlightCode>
       )
     },
     image: ({value: {asset, alt}}) => {
