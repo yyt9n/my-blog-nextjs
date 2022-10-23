@@ -1,5 +1,6 @@
 import { PortableText } from '@portabletext/react'
 import HighlightCode from 'components/HighlightCode';
+import { urlFor } from 'lib/api';
 
 const components = {
   types: {
@@ -13,12 +14,10 @@ const components = {
     },
     image: ({value: {asset, alt}}) => {
         return (
-            <img
-            src={asset?.url}
-            fit="max"
-            height="320px"
-            width="240px"
-            alt={alt}/>
+            <div className="blog-image">
+                <img src={urlFor(asset).height(300).fit('max').url()} />
+                <div className="image-alt">{alt}</div>
+            </div>
         )
     }
   }
