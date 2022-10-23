@@ -1,23 +1,35 @@
-import BlockContent from '@sanity/block-content-to-react';
+import { PortableText } from '@portabletext/react'
 
-const serializers = {
+const components = {
   types: {
-    code: ({node: {language, code, filename}}) => {
+    code: ({value: {language, code, filename}}) => {
       return (
         <pre data-language={language}>
           <code>{code}</code>
           <p>{filename}</p>
         </pre>
       )
+    },
+    image: ({value: {asset, alt}}) => {
+        return (
+            <img
+            src={asset?.url}
+            fit="max"
+            height="320px"
+            width="240px"
+            alt={alt}/>
+        )
     }
   }
 }
 
-const BlogContent = ({content}) =>
-  <BlockContent
-    imageOptions={{w: 320, h: 240, fit: 'max'}}
-    serializers={serializers}
-    blocks={content}
-  />
+const BlogContent = (content) => {
+    return (
+    <PortableText
+        components={components}
+        value={content.value}
+    />
+    )
+}
 
 export default BlogContent;

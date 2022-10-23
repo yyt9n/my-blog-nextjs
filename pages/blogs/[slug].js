@@ -18,7 +18,7 @@ const BlogDetail = ({blog}) => {
             date={blog.date}
           />
           <hr/>
-          <BlogContent content={blog.content} />
+          <BlogContent value={blog.content} />
         </Col>
       </Row>
     </PageLayout>
